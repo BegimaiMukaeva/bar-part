@@ -1,0 +1,79 @@
+.notificationMain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+.notificationModal {
+    font-family: Nunito;
+    width: 495px;
+    height: 100vh;
+    background: #023462;
+    padding: 24px 32px;
+}
+.notificationModalTitle {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 38px;
+}
+.notificationModalTheme {
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+    color: white;
+}
+.notificationModalCloseButton {
+    margin-left: 110px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.notificationMainCard {
+    width: 431px;
+    height: 104px;
+    margin: 20px 0;
+    border-bottom: 2px solid white;
+}
+.notificationMainCardTitle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.notificationMainCardTable {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: white;
+}
+.notificationNumberOfCard {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    color: white;
+}
+.notificationCardOrder .notificationCardOrderList {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 8px 0;
+}
+.notificationCardOrder .notificationCardOrderList li {
+    list-style: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #ffffff;
+    margin-right: 6px;
+}
+.notificationCardOrder .notificationCardOrderList span {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    color: #FF8B5B;
+}

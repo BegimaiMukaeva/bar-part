@@ -1,0 +1,103 @@
+.profileMain {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Nunito;
+}
+.profileForm {
+    width: 703px;
+    height: 490px;
+    border-radius: 30px;
+    background: #FEFEFE;
+    padding: 32px;
+    position: relative;
+}
+.profileScheduleBox {
+    display: flex;
+    align-items: start;
+}
+.profileSchedule {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profileScheduleTimes {
+    margin-right: 70px;
+}
+.profileScheduleBoxDay {
+    margin-right: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    background: #FF8B5B;
+}
+.profileScheduleBoxNight {
+    margin-right: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    background: #8876C5;
+}
+.profileScheduleRest {
+    margin-right: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 5px;
+    background: #68829A;
+}
+.boxText {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    color: #000000;
+}
+.profileScheduleTheme {
+    margin: 15px 0;
+    text-align: start;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33px;
+    color: #000000;
+}
+.profileScheduleList ul{
+    height: 270px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.profileScheduleList ul li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 27px;
+    color: #000000;
+}
+.exitPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 55px;
+    height: 61px;
+    position: absolute;
+    top: 500px;
+    right: -300px;
+}
+.exitPanelImage {
+    width: 32px;
+    height: 32px;
+}
+.exitPanelButton {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    color: #000000;
+}

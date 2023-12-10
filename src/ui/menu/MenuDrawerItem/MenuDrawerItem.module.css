@@ -1,0 +1,122 @@
+.main {
+  width: 431px;
+  height: 124px;
+  border-bottom: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}
+.main img {
+  width: 104px;
+  height: 104px;
+  border-radius: 24px;
+}
+
+.orderDesc {
+  width: 307px;
+}
+.orderDesc p:first-child {
+  width: 100%;
+  text-align: left;
+  color: white;
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+  margin: 0;
+}
+.orderDesc p:nth-child(2) {
+  width: 100%;
+  text-align: right;
+  color: var(--client-orange, #ff8b5b);
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 24px */
+  margin: 0;
+}
+.orderDesc .optionAndPlus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.orderDesc .optionAndPlus div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 50%;
+}
+.orderDesc .optionAndPlus div:first-child p {
+  text-align: start;
+  margin: 0;
+  color: var(--white, #fefefe);
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 21.6px */
+}
+.orderDesc .optionAndPlus .plusMinusBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 118px;
+  gap: 10px;
+}
+.orderDesc .optionAndPlus .plusMinusBtn .minus {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #8f8f8f;
+}
+.orderDesc .optionAndPlus .plusMinusBtn .minus img {
+  width: 25px;
+  height: 25px;
+}
+.orderDesc .optionAndPlus .plusMinusBtn .plus {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ff8b5b;
+}
+.orderDesc .optionAndPlus .plusMinusBtn .plus img {
+  width: 25px;
+  height: 25px;
+}

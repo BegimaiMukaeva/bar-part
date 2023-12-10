@@ -1,0 +1,90 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    font-family: Nunito;
+    width: 707px;
+    height: 237px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+.orderCardTitle {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.modalTitle {
+    margin-right: 185px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+    color: #000000;
+}
+
+.modalProfileTitle {
+    margin-right: 112px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+    color: #000000;
+}
+.orderNumber {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #171717;
+}
+.orderCardCloseButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.orderCardCloseImg {
+    width: 32px;
+    height: 32px;
+}
+.modalMassage {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: center;
+    margin-top: 16px;
+}
+.modalActions {
+    display: flex;
+    margin: 34px 135px;
+}
+.confirmButton {
+    width: 198px;
+    height: 46px;
+    padding: 12px 0 12px 0;
+    border-radius: 10px;
+    border: 2px solid #FF8B5B;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #FF8B5B;
+    background-color: transparent;
+    margin-right: 40px;
+}
+.rejectButton {
+    width: 198px;
+    height: 46px;
+    padding: 12px 0 12px 0;
+    border-radius: 10px;
+    border: 2px solid #FF8B5B;
+    background: #FF8B5B;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #FEFEFE;
+}

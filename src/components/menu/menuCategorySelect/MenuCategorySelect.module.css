@@ -1,0 +1,69 @@
+.main {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 13px 28px 14px 28px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50px;
+  width: 165px;
+  height: 52px;
+  gap: 15px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.buttonActive {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 13px 28px 14px 28px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50px;
+  width: 165px;
+  height: 52px;
+  gap: 15px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background: var(--barista-orange, #ff8b5b);
+  color: white;
+}
+.buttonActive p {
+  text-align: center;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.button p {
+  text-align: center;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

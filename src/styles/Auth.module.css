@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Nunito;
+}
+.authContainer {
+    background-image: url("../img/BackImageAuth.png");
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth .card {
+  background-color: #fff;
+  width: 641px;
+  height: 628px;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  /*justify-content: space-between;*/
+  align-items: center;
+  gap: 28px;
+}
+
+.header {
+  padding: 28px;
+  width: 641px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  background: #FF8B5B;
+  border-radius: 20px 20px 0 0;
+  color: #FEFEFE;
+}
+.headerNumber {
+  padding: 28px;
+  width: 641px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  background: #FF8B5B;
+  border-radius: 20px 20px 0 0;
+  color: #FEFEFE;
+  display: flex;
+}
+.backButtonTest {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.backButtonTest img {
+  margin-right: 79px;
+}
+.authTheme {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 98px;
+  color: #171717;
+}
+.headerTopic {
+  width: 447px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+}
+.textNumber {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+}
+.textTopic {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  color: #8F8F8F;
+}
+.inputAuth {
+  width: 534px;
+  height: 70px;
+  padding: 17px;
+  border-radius: 10px;
+  background: #EDEDED;
+  border: none;
+  outline: none;
+}
+.body {
+  padding: 10px;
+}
+
+.phoneInput {
+  position: relative;
+}
+
+.phoneInput input {
+  width: 534px !important;
+  height: 70px !important;
+  padding: 24px !important;
+  /*border-radius: 10px !important;*/
+  background: #EDEDED !important;
+  border: none !important;
+  outline: none !important;
+  font-size: 22px !important;
+  font-weight: 600 !important;
+  line-height: 22px !important;
+  margin-left: 30px!important;
+  border-left: 1px solid #C1C1C3!important;
+}
+
+.submitBtn {
+  width: 534px;
+  height: 70px;
+  padding: 19px;
+  border-radius: 10px;
+  gap: 10px;
+  background: #FF8B5B;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #FEFEFE;
+  margin-top: 24px;
+  cursor: pointer;
+}
+.submitBtn:disabled {
+  background: #FFC1A8;
+  cursor: not-allowed;
+  width: 534px;
+  height: 70px;
+  padding: 19px;
+  border-radius: 10px;
+  gap: 10px;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #FEFEFE;
+  margin-top: 24px;
+}
+.submitCode {
+  width: 534px;
+  height: 70px;
+  padding: 19px;
+  border-radius: 10px;
+  gap: 10px;
+  background: #FF8B5B;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #FEFEFE;
+  cursor: pointer;
+}
+.submitCodeDisabled {
+  background: #FFC1A8;
+  cursor: not-allowed;
+  width: 534px;
+  height: 70px;
+  padding: 19px;
+  border-radius: 10px;
+  gap: 10px;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #FEFEFE;
+}
+
+.submitCodeBtn {
+  padding: 19px;
+  border-radius: 10px;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 22px;
+  color: #8F8F8F;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.authNumber .cardNumber {
+  background-color: #fff;
+  width: 641px;
+  height: 628px;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.test {
+  width: 534px;
+  height: 70px;
+  border-radius: 10px;
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  background: #EDEDED;
+  border: none;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 500;
+  letter-spacing:10px;
+  margin-bottom: 30px;
+  outline: none;
+  color: #C1C1C3;
+}
+.error {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  color: #FF4B4B;
+}

@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+button {
+    cursor: pointer;
+}
+.allOrderMain {
+    display: flex;
+    width: 100%;
+    background: #F3F5F7;
+}
+.allOrders {
+    width: 100%;
+    flex-grow: 0;
+    flex-basis: 100%;
+}

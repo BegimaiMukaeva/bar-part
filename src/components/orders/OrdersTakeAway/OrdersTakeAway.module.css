@@ -1,0 +1,44 @@
+.orderCardsContainer {
+    height: 605px;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  justify-content: flex-start;
+}
+.takeAwayMain {
+    padding: 10px 0 0 32px;
+    font-family: Nunito;
+}
+.takeAwayMainState {
+    width: 936px;
+    display: flex;
+    justify-content: space-between;
+}
+.takeAwayMainButtons {
+    display: flex;
+    align-items: center;
+}
+.takeAwayMainButton {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    color: #171717;
+    width: auto;
+    height: 49px;
+    padding: 12px 36px 12px 32px;
+    border-radius: 50px;
+}
+.takeAwayMainButton.active {
+  background-color: #FF8B5B;
+}
+.takeAwayMainButtonsCircle {
+  margin-right: 12px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 100;
+}

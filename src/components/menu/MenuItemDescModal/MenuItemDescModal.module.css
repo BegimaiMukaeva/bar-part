@@ -1,0 +1,81 @@
+.main {
+  width: 600px;
+  height: 539px;
+  border-radius: 30px;
+  background: var(--white, #fefefe);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head p {
+  color: #000;
+  font-family: Nunito;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.itemDesc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.itemDesc img {
+  width: 145px;
+  height: 145px;
+  border-radius: 10px;
+}
+.itemDesc p {
+  height: 145px;
+  color: #000;
+  font-family: Nunito;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  margin: 0;
+}
+
+.ingrid p {
+  color: #000;
+  font-family: Nunito;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+}
+
+.btn {
+  display: flex;
+  width: 536px;
+  height: 64px;
+  padding: 16px 44px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: var(--barista-orange, #ff8b5b);
+  color: var(--white, #fefefe);
+  text-align: center;
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  outline: none;
+}
+
+/*# sourceMappingURL=MenuItemDescModal.module.css.map */

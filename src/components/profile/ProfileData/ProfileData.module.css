@@ -1,0 +1,71 @@
+.profileMain {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Nunito;
+}
+.profileForm {
+    width: 706px;
+    height: 313px;
+    border-radius: 30px;
+    background: #FEFEFE;
+    padding: 32px;
+    position: relative;
+}
+.profileInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.profileInfoTitle {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 33px;
+    color: #000000;
+}
+.nameOfInput {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-right: 10px;
+    color: #8F8F8F;
+}
+.textInput {
+    width: 305px;
+    height: 50px;
+    padding: 16px;
+    border-radius: 10px;
+    background: #F3F5F7;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+    color: #171717;
+}
+.exitPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 55px;
+    height: 61px;
+    position: absolute;
+    top: 400px;
+    right: -300px;
+}
+.exitPanelImage {
+    width: 32px;
+    height: 32px;
+}
+.exitPanelButton {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    color: #000000;
+}

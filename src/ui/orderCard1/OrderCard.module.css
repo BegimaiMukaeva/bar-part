@@ -1,0 +1,118 @@
+/*card*/
+.orderCardMain {
+    display: flex;
+    flex-wrap: wrap;
+}
+.orderCard {
+    flex: 0 0 auto;
+    margin: 14px 20px 0 0;
+    font-family: Nunito;
+    width: 243px;
+    height: 290px;
+    padding: 16px;
+    border-radius: 10px;
+    background: #FEFEFE;
+    cursor: pointer;
+}
+.orderCardTitle {
+    display: flex;
+    justify-content: space-between;
+}
+.orderNumber {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #171717;
+}
+.orderCardCloseButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.orderWaiterName {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    color: #8F8F8F;
+    margin: 6px 0 16px 0;
+}
+.orderCard ul li {
+    list-style: none;
+    margin: 3px 0;
+}
+.orderList li{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+}
+.orderListMoreButton {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: #FFA580;
+    cursor: pointer;
+    margin: 6px 0 24px 0;
+}
+.orderStateButton1 {
+    width: 198px;
+    height: 46px;
+    border-radius: 10px;
+    border: 2px solid #FF5151;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #FF5151;
+    text-align: center;
+}
+.orderStateButton2 {
+    width: 198px;
+    height: 46px;
+    border-radius: 10px;
+    border: 2px solid #FF8B5B;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #FF8B5B;
+    text-align: center;
+}
+.orderStateButton3 {
+    width: 198px;
+    height: 46px;
+    border-radius: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid #37D400;
+    line-height: 22px;
+    color: #37D400;;
+    text-align: center;
+}
+.orderStateButton4 {
+    width: 198px;
+    height: 46px;
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #171717;
+    cursor: auto;
+}
+.orderStateButton5 {
+    width: 198px;
+    height: 46px;
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+    color: #717171;
+    cursor: auto;
+}

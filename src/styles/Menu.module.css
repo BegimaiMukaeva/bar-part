@@ -1,0 +1,59 @@
+.main {
+  background-color: #f3f5f7;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87px;
+  width: calc(100vw - 117px);
+  background: var(--barista-orange, #ff8b5b);
+  color: var(--white, #fefefe);
+  text-align: center;
+  font-family: Nunito;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 48px 32px;
+}
+
+.cardDiv {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: calc(100vw - 181px);
+}
+
+.cardButton {
+  width: 421px;
+  height: 63px;
+  border-radius: 50px;
+  background: var(--barista-orange, #ff8b5b);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  outline: none;
+  border: none;
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+}
+.cardButton p {
+  color: #fff;
+  font-family: Nunito;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/*# sourceMappingURL=menuPage.module.css.map */

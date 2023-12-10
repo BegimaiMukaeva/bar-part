@@ -1,0 +1,40 @@
+.allOrders {
+    display: flex;
+    width: 100%;
+    flex-grow: 0;
+    flex-basis: 100%;
+}
+
+.orderTakeAway {
+    width: 50% !important;
+    height: 60px;
+    background: #FF8B5B;
+}
+.orderTakeAwayButtons {
+    background: #FF8B5B;
+    border: none;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    font-family: Nunito;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+    color: white;
+}
+.orderHereButtons {
+    border: none;
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    font-family: Nunito;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 35px;
+    color: black;
+    background: #DCEDFF;
+}
+
+.activeButton {
+    border-bottom: 2px solid #023462;
+}
