@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import img from "../../../img/menu/menuCard/menuCardImg.svg";
 
 import styles from "./MenuItemDescModal.module.css";
-import MenuOptionModal from "../menuOptionModal/MenuOptionModal";
+import MenuOptionModal from "../MenuOptionModal/MenuOptionModal";
 
 const MenuItemDescModal = ({ open, handleClose }) => {
   const [optionalOpen, setOptionalOpen] = useState(false)

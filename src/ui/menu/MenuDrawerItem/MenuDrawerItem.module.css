@@ -30,7 +30,7 @@
 .orderDesc p:nth-child(2) {
   width: 100%;
   text-align: right;
-  color: var(--client-orange, #ff8b5b);
+  color:  #ff8b5b;
   font-family: Nunito;
   font-size: 20px;
   font-style: normal;
@@ -65,7 +65,7 @@
 .orderDesc .optionAndPlus div:first-child p {
   text-align: start;
   margin: 0;
-  color: var(--white, #fefefe);
+  color: white;
   font-family: Nunito;
   font-size: 16px;
   font-style: normal;

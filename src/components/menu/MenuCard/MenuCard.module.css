@@ -2,7 +2,7 @@
   width: 318px;
   height: 136px;
   border-radius: 15px;
-  background: var(--white, #fefefe);
+  background: #fefefe;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,7 +13,7 @@
       -ms-flex-align: center;
           align-items: center;
   padding: 20px 16px;
-  margin-bottom: 32px;
+    margin: 0 20px 32px 0;
 }
 
 .img {

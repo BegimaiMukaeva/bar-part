@@ -2,7 +2,7 @@
   width: 600px;
   height: 539px;
   border-radius: 30px;
-  background: var(--white, #fefefe);
+  background: #fefefe;
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -66,8 +66,8 @@
   gap: 10px;
   flex-shrink: 0;
   border-radius: 15px;
-  background: var(--barista-orange, #ff8b5b);
-  color: var(--white, #fefefe);
+  background: #ff8b5b;
+  color: #fefefe;
   text-align: center;
   font-family: Nunito;
   font-size: 20px;

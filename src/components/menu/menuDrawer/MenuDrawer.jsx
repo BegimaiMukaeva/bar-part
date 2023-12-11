@@ -2,8 +2,8 @@ import { Drawer, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 import styles from "./MenuDarwer.module.css";
-import MenuDarwerEmpry from "../../../ui/menu/menuDrawerEmpty/MenuDarwerEmpry";
-import MenuDrawerItem from "../../../ui/menu/menuDrawerItem/MenuDrawerItem";
+import MenuDarwerEmpry from "../../../ui/menu/MenuDarwerEmpry/MenuDarwerEmpry";
+import MenuDrawerItem from "../../../ui/menu/MenuDrawerItem/MenuDrawerItem";
 
 const MenuDrawer = ({ open, close }) => {
   return (
@@ -16,7 +16,7 @@ const MenuDrawer = ({ open, close }) => {
           </IconButton>
         </div>
         <MenuDrawerItem/>
-        {/* <MenuDarwerEmpry /> */}
+         <MenuDarwerEmpry />
         <div className={styles.drawFot}>
           <div>
             <p>Итого</p>

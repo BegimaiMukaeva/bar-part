@@ -15,6 +15,8 @@
     height: 100vh;
     background: #023462;
     padding: 24px 32px;
+    position: revert;
+    z-index: 999;
 }
 .notificationModalTitle {
     display: flex;

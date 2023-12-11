@@ -1,5 +1,5 @@
 import IconButton from "@mui/material/IconButton";
-import MenuItemDescModal from "../menuItemDescModal/MenuItemDescModal";
+import MenuItemDescModal from "../MenuItemDescModal/MenuItemDescModal";
 import { useState } from "react";
 
 import menuCardImg from "../../../img/menu/menuCard/menuCardImg.svg";

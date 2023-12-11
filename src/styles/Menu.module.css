@@ -1,3 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+button {
+    cursor: pointer;
+}
+.allOrderMain {
+    display: flex;
+    width: 100%;
+    background: #F3F5F7;
+}
+.allOrders {
+    width: 100%;
+    flex-grow: 0;
+    flex-basis: 100%;
+}
 .main {
   background-color: #f3f5f7;
   position: relative;
@@ -7,10 +25,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 87px;
+  height: 60px;
   width: calc(100vw - 117px);
-  background: var(--barista-orange, #ff8b5b);
-  color: var(--white, #fefefe);
+  background: #ff8b5b;
+  color: #fefefe;
   text-align: center;
   font-family: Nunito;
   font-size: 26px;
@@ -23,29 +41,33 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 48px 32px;
+  padding: 40px 25px;
 }
 
 .cardDiv {
+  height: 500px;
+  overflow-y: auto;
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
-  width: calc(100vw - 181px);
+  white-space: nowrap;
+  justify-content: start;
 }
+
 
 .cardButton {
   width: 421px;
   height: 63px;
   border-radius: 50px;
-  background: var(--barista-orange, #ff8b5b);
+  background: #ff8b5b;
   display: flex;
   justify-content: space-around;
   align-items: center;
   outline: none;
   border: none;
-  position: absolute;
+  position: fixed;
   bottom: 32px;
-  right: 32px;
+  right: 52px;
+  z-index: 1;
 }
 .cardButton p {
   color: #fff;
@@ -56,4 +78,3 @@
   line-height: normal;
 }
 
-/*# sourceMappingURL=menuPage.module.css.map */
