@@ -26,6 +26,13 @@
       -ms-flex-align: center;
           align-items: center;
   height: 35px;
+    margin-bottom:40px;
+}
+.menuDraw {
+    width: 495px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .drawHead p {
   margin: 0;

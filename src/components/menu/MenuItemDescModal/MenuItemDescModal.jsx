@@ -55,7 +55,7 @@ const MenuItemDescModal = ({ open, handleClose }) => {
       </div>
     </Modal>
 
-      <MenuOptionModal open={optionalOpen} handleClose={()=>setOptionalOpen(false)}/>
+      {/*<MenuOptionModal open={optionalOpen} handleClose={()=>setOptionalOpen(false)}/>*/}
     </div>
   );
 };

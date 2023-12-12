@@ -1,4 +1,5 @@
 .main {
+    font-family: Nunito;
   width: 318px;
   height: 136px;
   border-radius: 15px;
@@ -14,6 +15,7 @@
           align-items: center;
   padding: 20px 16px;
     margin: 0 20px 32px 0;
+    position: relative;
 }
 
 .img {
@@ -76,3 +78,30 @@
   text-decoration: none;
   cursor: pointer;
 }
+.quantityControlsOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 139, 91, 0.89);
+  padding: 10px;
+  width: 318px;
+  height: 136px;
+  border-radius: 15px;
+}
+.quantityControlsOverlay img {
+    width: 56px;
+    height: 56px;
+}
+.quantityControlsOverlay span {
+    margin: 0 15px;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 48px;
+    text-align: center;
+    color: white;
+}
+
