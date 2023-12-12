@@ -1,5 +1,6 @@
 import { Drawer, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import closeOrderCard from "../../../img/X-white.svg";
 
 import styles from "./MenuDarwer.module.css";
 import MenuDarwerEmpry from "../../../ui/menu/MenuDarwerEmpry/MenuDarwerEmpry";
@@ -12,10 +13,10 @@ const MenuDrawer = ({ open, close }) => {
         <div className={styles.drawHead}>
           <p>Заказ на вынос</p>
           <IconButton className={styles.x} onClick={close}>
-            <CloseIcon />
+            <img src={closeOrderCard} alt=""/>
           </IconButton>
         </div>
-        <MenuDrawerItem/>
+        {/*<MenuDrawerItem/>*/}
          <MenuDarwerEmpry />
         <div className={styles.drawFot}>
           <div>

@@ -23,8 +23,8 @@ const MenuCategorySelect = ({category, setCategory}) => {
         <img src={category==="dessert"?cakeActiveIcon:cakeIcon} alt="" />
         <p>Десерты</p>
       </button>
-      <button onClick={()=>setCategory("bakary")}  className={category==="bakary"?styles.buttonActive:styles.button}>
-        <img src={category==="bakary"?bakeryActiveIcon:bakeryIcon} alt="" />
+      <button onClick={()=>setCategory("bakery")}  className={category==="bakery"?styles.buttonActive:styles.button}>
+        <img src={category==="bakery"?bakeryActiveIcon:bakeryIcon} alt="" />
         <p>Выпечка</p>
       </button>
       <button onClick={()=>setCategory("cocktail")}  className={category==="cocktail"?styles.buttonActive:styles.button}>

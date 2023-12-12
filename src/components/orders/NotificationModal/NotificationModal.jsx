@@ -1,11 +1,15 @@
-import React from 'react';
-import styles from './NotificationModal.module.css';
-import closeOrderCard from "../../../img/X-white.svg";
+import { Drawer } from "@mui/material";
 
-const NotificationModal = ({ onClose }) => {
-    return (
-        <div className={styles.notificationMain}>
-            <div className={styles.notificationModal}>
+import styles from "./NotificationModal.module.css";
+import closeOrderCard from "../../../img/X-white.svg";
+import React from "react";
+
+const NotificationModal = ({onClose, open, close }) => {
+
+
+  return (
+    <Drawer anchor="left" open={open} onClose={close}>
+      <div className={styles.notificationModal}>
                 <div className={styles.notificationModalTitle}>
                     <p className={styles.notificationModalTheme}>Уведомления</p>
                     <button className={styles.notificationModalCloseButton} onClick={onClose}>
@@ -62,8 +66,8 @@ const NotificationModal = ({ onClose }) => {
                     </div>
                 </div>
             </div>
-        </div>
-    );
+    </Drawer>
+  );
 };
 
 export default NotificationModal;
