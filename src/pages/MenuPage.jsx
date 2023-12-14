@@ -1,4 +1,5 @@
-import React, { useState , useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 import MenuCategorySelect from '../components/menu/menuCategorySelect/menuCategorySelect';
 
@@ -7,154 +8,143 @@ import MenuCard from "../components/menu/MenuCard/MenuCard";
 import MenuDrawer from "../components/menu/menuDrawer/MenuDrawer";
 import SideBar from "../components/SideBar/SideBar";
 
-const menuItems = [
-    {
-        name: "Капучино",
-        price: "140c",
-        image: "https://via.placeholder.com/150",
-        description: "Rich and creamy cappuccino with a smooth foam top.",
-        category: "coffee"
-    },
-    {
-        name: "Эспрессо",
-        price: "120c",
-        image: "https://via.placeholder.com/150",
-        description: "Strong and bold espresso, perfect for a quick energy boost.",
-        category: "coffee"
-    },
-    {
-        name: "Латте",
-        price: "150c",
-        image: "https://via.placeholder.com/150",
-        description: "Smooth and milky latte with a hint of espresso.",
-        category: "coffee"
-    },
-    {
-        name: "Американо",
-        price: "130c",
-        image: "https://via.placeholder.com/150",
-        description: "Classic Americano, a perfect balance of espresso and hot water.",
-        category: "coffee"
-    },
-    {
-        name: "Мокачино",
-        price: "160c",
-        image: "https://via.placeholder.com/150",
-        description: "Delicious mochaccino with a perfect blend of chocolate and coffee.",
-        category: "coffee"
-    },
-    {
-        name: "Тирамису",
-        price: "180c",
-        image: "https://via.placeholder.com/150",
-        description: "Authentic Italian tiramisu, rich and flavorful.",
-        category: "dessert"
-    },
-    {
-        name: "Чизкейк",
-        price: "170c",
-        image: "https://via.placeholder.com/150",
-        description: "Creamy cheesecake with a crispy crust, served with berry sauce.",
-        category: "dessert"
-    },
-    {
-        name: "Круассан",
-        price: "100c",
-        image: "https://via.placeholder.com/150",
-        description: "Freshly baked croissant, light and flaky.",
-        category: "bakery"
-    },
-    {
-        name: "Маффин",
-        price: "110c",
-        image: "https://via.placeholder.com/150",
-        description: "Delicious muffin available in various flavors.",
-        category: "bakery"
-    },
-    {
-        name: "Мохито",
-        price: "150c",
-        image: "https://via.placeholder.com/150",
-        description: "Refreshing mojito cocktail with mint and lime.",
-        category: "cocktail"
-    },
-    {
-        name: "Фруктовый чай",
-        price: "130c",
-        image: "https://via.placeholder.com/150",
-        description: "Aromatic fruit tea with a blend of seasonal fruits.",
-        category: "tea"
-    },
-];
+import cakeIcon from "../img/menu/MenuCategory/cake.svg";
+import coffeeIcon from "../img/menu/MenuCategory/coffee.svg"
+import coffeeActiveIcon from "../img/menu/MenuCategory/coffeeActive.svg"
+import cakeActiveIcon from "../img/menu/MenuCategory/cakeActive.svg"
+import bakeryIcon from "../img/menu/MenuCategory/bakary.svg"
+import bakeryActiveIcon from "../img/menu/MenuCategory/bakaryActive.svg"
+import cocktailIcon from "../img/menu/MenuCategory/cocktail.svg"
+import cocktailActiveIcon from "../img/menu/MenuCategory/cocktailActive.svg"
+import teaIcon from "../img/menu/MenuCategory/tea.svg"
+import teaActiveIcon from "../img/menu/MenuCategory/teaActive.svg"
+
 
 const MenuPage = () => {
-    const [category, setCategory] = useState("coffee");
+    const [categories, setCategories] = useState([]);
+    const [menuItems, setMenuItems] = useState([]);
+    const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+
     const [drawer, setDrawer] = useState(false);
     const [cartItems, setCartItems] = useState([]);
     const [total, setTotal] = useState(0);
 
-    const filteredMenuItems = menuItems.filter(item => item.category === category);
+    const filteredMenuItems = menuItems.filter(item => item.category.id === selectedCategoryId);
 
-    // const addToCart = (itemToAdd) => {
-    //     setCartItems(prevItems => {
-    //         const itemIndex = prevItems.findIndex(i => i.name === itemToAdd.name);
-    //         if (itemIndex > -1) {
-    //             // Update quantity if item already exists
-    //             let newItems = [...prevItems];
-    //             newItems[itemIndex].quantity += 1;
-    //             return newItems;
-    //         } else {
-    //             // Add new item to cart
-    //             return [...prevItems, { ...itemToAdd, quantity: 1 }];
-    //         }
-    //     });
-    // };
-    //
-    // const removeFromCart = (itemNameToRemove) => {
-    //     setCartItems(prevItems => {
-    //         const itemIndex = prevItems.findIndex(i => i.name === itemNameToRemove);
-    //         if (itemIndex > -1 && prevItems[itemIndex].quantity > 1) {
-    //             // Decrease quantity
-    //             let newItems = [...prevItems];
-    //             newItems[itemIndex].quantity -= 1;
-    //             return newItems;
-    //         } else {
-    //             // Remove item from cart
-    //             return prevItems.filter(i => i.name !== itemNameToRemove);
-    //         }
-    //     });
-    // };
+    useEffect(() => {
+        console.log("Filtered menu items:", filteredMenuItems);
+    }, [filteredMenuItems]);
 
-    const addToCart = (item) => {
-  setCartItems((prevItems) => {
-    const itemIndex = prevItems.findIndex((i) => i.name === item.name);
-    if (itemIndex > -1) {
-      // Item exists, update the quantity
-      const newItems = [...prevItems];
-      newItems[itemIndex].quantity += 1;
-      return newItems;
-    } else {
-      // Item doesn't exist, add new item with quantity 1
-      return [...prevItems, { ...item, quantity: 1 }];
-    }
-  });
-};
+    useEffect(() => {
+        // Fetch Categories
+        const fetchCategories = async () => {
+            const accessToken = localStorage.getItem('accessToken');
+            try {
+                const response = await axios.get('https://muha-backender.org.kg/customers/categories/', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
+                setCategories(response.data.map(cat => ({
+                    ...cat,
+                    icon: getImageForCategory(cat.name),
+                    activeIcon: getActiveImageForCategory(cat.name)
+                })));
+                // setCategories(response.data);
+                setSelectedCategoryId(response.data[0]?.id); // Set initial category ID
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        };
 
-// Function to remove an item from the cart or decrease its quantity
-const removeFromCart = (itemName) => {
-  setCartItems((prevItems) => {
-    const itemIndex = prevItems.findIndex((i) => i.name === itemName);
-    if (itemIndex > -1 && prevItems[itemIndex].quantity > 1) {
-      // Decrease quantity
-      const newItems = [...prevItems];
-      newItems[itemIndex].quantity -= 1;
-      return newItems;
-    } else {
-      // Remove item from cart
-      return prevItems.filter((i) => i.name !== itemName);
-    }
-  });
-};
+
+        // Fetch Menu Items
+        const fetchMenuItems = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
+                const response = await axios.get('https://muha-backender.org.kg/customers/menu', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
+
+                setMenuItems(response.data);
+            } catch (error) {
+                console.error('Error fetching menu items:', error);
+            }
+        };
+
+        fetchCategories();
+        fetchMenuItems();
+    }, []);
+
+
+    useEffect(() => {
+        if (categories.length > 0) {
+            setSelectedCategoryId(categories[0].id);
+        }
+    }, [categories]);
+
+    const getImageForCategory = (categoryName) => {
+        switch (categoryName.toLowerCase()) {
+            case 'кофе':
+                return coffeeIcon;
+            case 'десерты':
+                return cakeIcon;
+            case 'выпечка':
+                return bakeryIcon;
+            case 'коктейли':
+                return cocktailIcon;
+            case 'чай':
+                return teaIcon;
+            default:
+                return '';
+        }
+    };
+
+    const getActiveImageForCategory = (categoryName) => {
+        switch (categoryName.toLowerCase()) {
+            case 'кофе':
+                return coffeeActiveIcon;
+            case 'десерты':
+                return cakeActiveIcon;
+            case 'выпечка':
+                return bakeryActiveIcon;
+            case 'коктейли':
+                return cocktailActiveIcon;
+            case 'чай':
+                return teaActiveIcon;
+            default:
+                return '';
+        }
+    };
+
+
+    const handleCategoryChange = (categoryId) => {
+        setSelectedCategoryId(categoryId);
+    };
+    const addToCart = (itemToAdd) => {
+        setCartItems((prevItems) => {
+            const existingItemIndex = prevItems.findIndex(item => item.name === itemToAdd.name);
+            if (existingItemIndex >= 0) {
+                return prevItems.map((item, index) =>
+                    index === existingItemIndex ? {...item, quantity: item.quantity + 1} : item
+                );
+            } else {
+                return [...prevItems, {...itemToAdd, quantity: 1}];
+            }
+        });
+    };
+
+    const removeFromCart = (itemName) => {
+        setCartItems((prevItems) => {
+            const existingItemIndex = prevItems.findIndex(item => item.name === itemName);
+            if (existingItemIndex >= 0 && prevItems[existingItemIndex].quantity > 1) {
+                return prevItems.map((item, index) =>
+                    index === existingItemIndex ? {...item, quantity: item.quantity - 1} : item
+                );
+            } else {
+                return prevItems.filter(item => item.name !== itemName);
+            }
+        });
+    };
+
 
     const calculateTotal = () => {
         const totalAmount = cartItems.reduce((sum, item) => sum + item.quantity * parseInt(item.price, 10), 0);
@@ -167,9 +157,9 @@ const removeFromCart = (itemName) => {
 
 
     const itemsWithQuantities = filteredMenuItems.map(item => {
-    const cartItem = cartItems.find(i => i.name === item.name);
-    return { ...item, quantity: cartItem ? cartItem.quantity : 0 };
-  });
+        const cartItem = cartItems.find(i => i.name === item.name);
+        return { ...item, quantity: cartItem ? cartItem.quantity : 0 };
+    });
 
     return (
         <div className={styles.allOrderMain}>
@@ -182,11 +172,23 @@ const removeFromCart = (itemName) => {
                         <p>Меню</p>
                     </div>
                     <div className={styles.content}>
-                        <MenuCategorySelect category={category} setCategory={setCategory} />
+                        <MenuCategorySelect
+                            categories={categories}
+                            selectedCategoryId={selectedCategoryId}
+                            handleCategoryChange={handleCategoryChange}
+                        />
                         <div className={styles.cardDiv}>
-                            {itemsWithQuantities.map((item, index) =>(
-                                <MenuCard key={index} item={item} addToCart={addToCart} removeFromCart={removeFromCart} />
-                            ))}
+                            {filteredMenuItems.map((item, index) => {
+                                const cartItem = cartItems.find(cartItem => cartItem.name === item.name);
+                                return (
+                                    <MenuCard
+                                        key={index}
+                                        item={cartItem || item}
+                                        addToCart={addToCart}
+                                        removeFromCart={removeFromCart}
+                                    />
+                                );
+                            })}
                         </div>
                     </div>
                     <button onClick={()=>setDrawer(!drawer)} className={styles.cardButton}>
