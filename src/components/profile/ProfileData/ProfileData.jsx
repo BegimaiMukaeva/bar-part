@@ -52,6 +52,8 @@ const ProfileData = () => {
                         <input
                             type="text"
                             className={styles.textInput}
+                            value={profileData.last_name || ''}
+                            readOnly
                         />
                     </label>
                 </div>

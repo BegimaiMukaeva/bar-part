@@ -36,7 +36,6 @@ const MenuPage = () => {
     }, [filteredMenuItems]);
 
     useEffect(() => {
-        // Fetch Categories
         const fetchCategories = async () => {
             const accessToken = localStorage.getItem('accessToken');
             try {
@@ -48,15 +47,13 @@ const MenuPage = () => {
                     icon: getImageForCategory(cat.name),
                     activeIcon: getActiveImageForCategory(cat.name)
                 })));
-                // setCategories(response.data);
-                setSelectedCategoryId(response.data[0]?.id); // Set initial category ID
+                setSelectedCategoryId(response.data[0]?.id);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
         };
 
 
-        // Fetch Menu Items
         const fetchMenuItems = async () => {
             try {
                 const accessToken = localStorage.getItem('accessToken');
@@ -73,7 +70,6 @@ const MenuPage = () => {
         fetchCategories();
         fetchMenuItems();
     }, []);
-
 
     useEffect(() => {
         if (categories.length > 0) {
@@ -115,10 +111,10 @@ const MenuPage = () => {
         }
     };
 
-
     const handleCategoryChange = (categoryId) => {
         setSelectedCategoryId(categoryId);
     };
+
     const addToCart = (itemToAdd) => {
         setCartItems((prevItems) => {
             const existingItemIndex = prevItems.findIndex(item => item.name === itemToAdd.name);
@@ -145,7 +141,6 @@ const MenuPage = () => {
         });
     };
 
-
     const calculateTotal = () => {
         const totalAmount = cartItems.reduce((sum, item) => sum + item.quantity * parseInt(item.price, 10), 0);
         setTotal(totalAmount);
@@ -154,7 +149,6 @@ const MenuPage = () => {
     useEffect(() => {
         calculateTotal();
     }, [cartItems]);
-
 
     const itemsWithQuantities = filteredMenuItems.map(item => {
         const cartItem = cartItems.find(i => i.name === item.name);
@@ -182,7 +176,8 @@ const MenuPage = () => {
                                 const cartItem = cartItems.find(cartItem => cartItem.name === item.name);
                                 return (
                                     <MenuCard
-                                        key={index}
+                                        // key={index}
+                                        key={item.id}
                                         item={cartItem || item}
                                         addToCart={addToCart}
                                         removeFromCart={removeFromCart}
@@ -199,6 +194,8 @@ const MenuPage = () => {
                         open={drawer}
                         close={() => setDrawer(false)}
                         cartItems={cartItems}
+                        setCartItems={setCartItems}
+                        setTotal={setTotal}
                         onAdd={addToCart}
                         onRemove={removeFromCart}
                         total={total}
