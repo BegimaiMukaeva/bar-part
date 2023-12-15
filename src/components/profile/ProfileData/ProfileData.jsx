@@ -48,11 +48,11 @@ const ProfileData = () => {
                             readOnly
                         />
                     </label>
-                    <label className={styles.nameOfInput}>Фамилия
+                    <label className={styles.nameOfInput}>Логин
                         <input
                             type="text"
                             className={styles.textInput}
-                            value={profileData.last_name || ''}
+                            value={profileData.username || ''}
                             readOnly
                         />
                     </label>

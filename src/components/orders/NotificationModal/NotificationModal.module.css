@@ -52,6 +52,11 @@
     margin: 20px 0;
     border-bottom: 2px solid white;
 }
+.notificationImg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
 .notificationMainCardTitle {
     display: flex;
     justify-content: space-between;
@@ -62,6 +67,16 @@
     font-weight: 700;
     line-height: 24px;
     color: white;
+}
+.notificationMainCards {
+    max-height: 600px;
+    width: 450px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    justify-content: flex-start;
+    align-items: start;
 }
 .notificationNumberOfCard {
     font-size: 18px;
@@ -75,7 +90,7 @@
     align-items: center;
     margin: 8px 0;
 }
-.notificationCardOrder .notificationCardOrderList li {
+.notificationCardOrder .notificationCardOrderList  {
     list-style: none;
     font-size: 18px;
     font-weight: 600;
