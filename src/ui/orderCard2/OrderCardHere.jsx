@@ -5,7 +5,7 @@ import CardHereInfo from '../../components/orders/CardHereInfo/CardHereInfo';
 import closeOrderCard from '../../img/X.svg';
 import axios from "axios";
 
-const OrderCardHere = ({ number, waiterName, items, onAccept, onCancel, onReady, onFinish, status, onOrderCancel }) => {
+const OrderCardHere = ({ number, waiterName, clientNumber, items, status, onOrderCancel }) => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [isCardInfoModalOpen, setCardInfoModalOpen] = useState(false);
 
@@ -136,29 +136,31 @@ const OrderCardHere = ({ number, waiterName, items, onAccept, onCancel, onReady,
     return (
         <div className={styles.orderCardMain}>
             <div className={styles.orderCard}>
-                <div className={styles.orderCardTitle}>
-                    <p className={styles.orderNumber}>{number}</p>
-                    {/*{status !== 'canceled' && status !== 'completed' && status !== 'ready' && status !== 'inProgress' && (*/}
-                    {/*    <button onClick={onCancel} className={styles.orderCardCloseButton}>*/}
-                    {/*        <img src={closeOrderCard} alt="Close"/>*/}
-                    {/*    </button>*/}
-                    {/*)}*/}
-                    {(status === 'new') && (
-                        <button onClick={handleCancelClick} className={styles.orderCardCloseButton}>
-                            <img src={closeOrderCard} alt="Close"/>
-                        </button>
-                    )}
-                </div>
-                <div onClick={handleCardClick}>
-                    <p className={styles.orderWaiterName}>{waiterName}</p>
-                    <ul className={styles.orderList}>
-                        {items.map((item, index) => (
-                            index < 3 && <li key={item.id}><span>x{item.quantity}</span>{item.name}</li>
-                        ))}
-                    </ul>
-                    {items.length > 3 && (
-                        <button className={styles.orderListMoreButton}>Еще +{items.length - 3}</button>
-                    )}
+                <div>
+                    <div className={styles.orderCardTitle}>
+                        <p className={styles.orderNumber}>{number}</p>
+                        {/*{status !== 'canceled' && status !== 'completed' && status !== 'ready' && status !== 'inProgress' && (*/}
+                        {/*    <button onClick={onCancel} className={styles.orderCardCloseButton}>*/}
+                        {/*        <img src={closeOrderCard} alt="Close"/>*/}
+                        {/*    </button>*/}
+                        {/*)}*/}
+                        {(status === 'new') && (
+                            <button onClick={handleCancelClick} className={styles.orderCardCloseButton}>
+                                <img src={closeOrderCard} alt="Close"/>
+                            </button>
+                        )}
+                    </div>
+                    <div onClick={handleCardClick}>
+                        <p className={styles.orderWaiterName}>{clientNumber}</p>
+                        <ul className={styles.orderList}>
+                            {items.map((item, index) => (
+                                index < 3 && <li key={item.id}><span>x{item.quantity}</span>{item.name}</li>
+                            ))}
+                        </ul>
+                        {items.length > 3 && (
+                            <button className={styles.orderListMoreButton}>Еще +{items.length - 3}</button>
+                        )}
+                    </div>
                 </div>
                 <div>
                     {renderButton()}

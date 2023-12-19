@@ -219,6 +219,7 @@ const OrdersHere = () => {
                         key={order.id || order.number}
                         number={order.number}
                         waiterName={order.waiterName}
+                        clientNumber={order.clientNumber}
                         items={order.items}
                         // onAccept={() => changeOrderStatus(order.id, 'inProgress')}
                         // onCancel={() => changeOrderStatus(order.id, 'canceled')}
