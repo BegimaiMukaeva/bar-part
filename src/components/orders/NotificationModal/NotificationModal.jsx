@@ -55,6 +55,7 @@ const NotificationModal = ({ onClose, open, close }) => {
 
 
   useEffect(() => {
+    // const ws = new WebSocket(`wss://muha-backender.org.kg/ws/to-baristas/branch/${branchId}/`);
     const ws = new WebSocket(`wss://muha-backender.org.kg/ws/to-baristas/branch/${branchId}/`);
 
     ws.onopen = () => console.log('Соединение установлено');

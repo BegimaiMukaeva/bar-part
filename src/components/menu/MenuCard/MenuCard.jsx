@@ -8,17 +8,30 @@ import axios from "axios";
 
 import styles from "./MenuCard.module.css";
 
-const MenuCard = ({ item, addToCart, removeFromCart  }) => {
+const MenuCard = ({ item, addToCart, removeFromCart , isReadyMade }) => {
     const [open, setOpen] = useState(false);
     const [quantity, setQuantity] = useState(0);
     const [showControls, setShowControls] = useState(false);
     const [menuItemDetails, setMenuItemDetails] = useState(null);
+
+    // const fetchMenuItemDetails = async () => {
+    //     try {
+    //         const accessToken = localStorage.getItem('accessToken');
+    //         const response = await axios.get(`https://muha-backender.org.kg/customers/menu/${item.id}/`, {
+    //             headers: { 'Authorization': `Bearer ${accessToken}` },
+    //         });
+    //         setMenuItemDetails(response.data);
+    //     } catch (error) {
+    //         console.error('Ошибка при получении данных блюда:', error);
+    //     }
+    // };
 
     const fetchMenuItemDetails = async () => {
         try {
             const accessToken = localStorage.getItem('accessToken');
             const response = await axios.get(`https://muha-backender.org.kg/customers/menu/${item.id}/`, {
                 headers: { 'Authorization': `Bearer ${accessToken}` },
+                params: { is_ready_made_product: isReadyMade }
             });
             setMenuItemDetails(response.data);
         } catch (error) {
@@ -26,9 +39,10 @@ const MenuCard = ({ item, addToCart, removeFromCart  }) => {
         }
     };
 
+
     const handleOpenModal = () => {
         fetchMenuItemDetails();
-        console.log("Opening modal for item:", item.name); // Для отладки
+        console.log("Opening modal for item:", item.name);
         setOpen(true);
     };
 

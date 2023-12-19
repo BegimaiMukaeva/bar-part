@@ -12,9 +12,9 @@ const OrderCloseModal = ({ onConfirm, onCancel, orderNumber }) => {
                         <img src={closeOrderCard} alt="Close" className={styles.orderCardCloseImg}/>
                     </button>
                 </div>
-                <p className={styles.modalMassage}>Вы действительно хотите отменить заказ {orderNumber}?</p>
+                <p className={styles.modalMassage}>Вы действительно хотите отменить заказ №{orderNumber}?</p>
                 <div className={styles.modalActions}>
-                    <button onClick={onConfirm} className={styles.confirmButton}>Да</button>
+                    <button onClick={() => onConfirm(orderNumber)}  className={styles.confirmButton}>Да</button>
                     <button onClick={onCancel} className={styles.rejectButton}>Нет</button>
                 </div>
             </div>

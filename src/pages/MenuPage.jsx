@@ -180,6 +180,7 @@ const MenuPage = () => {
                                         key={item.id}
                                         item={cartItem || item}
                                         addToCart={addToCart}
+                                        isReadyMade={item.is_ready_made_product}
                                         removeFromCart={removeFromCart}
                                     />
                                 );

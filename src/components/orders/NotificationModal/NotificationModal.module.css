@@ -1,7 +1,7 @@
 
 .main {
   padding: 24px;
-  width: 495px;
+  width: 520px;
   background: #023462;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,7 +21,7 @@
 
 .notificationModal {
     font-family: Nunito;
-    width: 495px;
+    width: 520px;
     height: 100vh;
     background: #023462;
     padding: 24px 32px;
@@ -47,7 +47,7 @@
     cursor: pointer;
 }
 .notificationMainCard {
-    width: 431px;
+    width: 450px;
     height: 104px;
     margin: 20px 0;
     border-bottom: 2px solid white;
@@ -70,7 +70,7 @@
 }
 .notificationMainCards {
     max-height: 600px;
-    width: 450px;
+    width: 480px;
     overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
