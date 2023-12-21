@@ -28,6 +28,7 @@ const OrdersTakeAway = () => {
             });
     }, []);
 
+
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
         if (!accessToken) {
@@ -35,126 +36,133 @@ const OrdersTakeAway = () => {
             return;
         }
 
-        if (currentStatus === 'new') {
-            if (!branchId) return;
-            const ws = new WebSocket(`wss://muha-backender.org.kg/ws/new-orders-takeaway/${branchId}/`);
+        let ws;
+        if (currentStatus === 'new' && branchId) {
+            ws = new WebSocket(`wss://muha-backender.org.kg/ws/new-orders-takeaway/${branchId}/`);
             ws.onopen = () => console.log('WebSocket Connection Opened');
             ws.onerror = error => console.error('WebSocket Error', error);
             ws.onmessage = e => {
                 const newOrder = JSON.parse(e.data);
                 if (newOrder && newOrder.orders) {
-                    const uniqueNewOrders = newOrder.orders.filter(newOrd =>
-                        !orders.some(ord => ord.id === newOrd.id)
-                    );
-                    if (uniqueNewOrders.length > 0) {
-                        setOrders(orders => [...orders, ...uniqueNewOrders]);
-                    }
+                    setOrders(prevOrders => {
+                        const existingIds = prevOrders.map(order => order.id);
+                        const uniqueNewOrders = newOrder.orders.filter(order => !existingIds.includes(order.id));
+                        return [...prevOrders, ...uniqueNewOrders];
+                    });
                 }
             };
+        }
+        const loadInProcessOrders = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
+                if (!accessToken) {
+                    console.error('Access token is not available.');
+                    return;
+                }
 
+                const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/in-process/', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
 
-            ws.onclose = () => console.log('WebSocket Connection Closed');
-            return () => {
+                if (response.status === 200 && response.data.orders) {
+                    setOrders(response.data.orders); // Обратите внимание на .orders
+                } else {
+                    console.error('Unexpected response format:', response.data);
+                }
+            } catch (error) {
+                console.error('Error loading in process orders:', error);
+            }
+        };
+
+        const loadReadyOrders = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
+                if (!accessToken) {
+                    console.error('Access token is not available.');
+                    return;
+                }
+
+                const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/ready/', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
+
+                if (response.status === 200 && response.data.orders) {
+                    setOrders(response.data.orders); // Обратите внимание на .orders
+                } else {
+                    console.error('Unexpected response format:', response.data);
+                }
+            } catch (error) {
+                console.error('Error loading in process orders:', error);
+            }
+        };
+
+        const loadCanceledOrders = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
+                if (!accessToken) {
+                    console.error('Access token is not available.');
+                    return;
+                }
+
+                const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/canceled/', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
+
+                if (response.status === 200 && response.data.orders) {
+                    setOrders(response.data.orders);
+                } else {
+                    console.error('Unexpected response format:', response.data);
+                }
+            } catch (error) {
+                console.error('Error loading canceled orders:', error);
+            }
+        };
+
+        const loadCompletedOrders = async () => {
+            try {
+                const accessToken = localStorage.getItem('accessToken');
+                if (!accessToken) {
+                    console.error('Access token is not available.');
+                    return;
+                }
+
+                const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/completed/', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                });
+
+                if (response.status === 200 && response.data.orders) {
+                    setOrders(response.data.orders);
+                } else {
+                    console.error('Unexpected response format:', response.data);
+                }
+            } catch (error) {
+                console.error('Error loading canceled orders:', error);
+            }
+        };
+
+        switch (currentStatus) {
+            case 'in_progress':
+                loadInProcessOrders();
+                break;
+            case 'ready':
+                loadReadyOrders();
+                break;
+            case 'canceled':
+                loadCanceledOrders();
+                break;
+            case 'completed':
+                loadCompletedOrders();
+                break;
+            default:
+                break;
+        }
+        return () => {
+            if (ws) {
                 ws.close();
-            };
-        } else if (currentStatus === 'in_progress') {
-            loadInProcessOrders();
-        } else if (currentStatus === 'ready') {
-            loadReadyOrders();
-        } else if (currentStatus === 'canceled') {
-            loadCanceledOrders();
-        } else if (currentStatus === 'completed') {
-            loadCompletedOrders();
-        }
-    }, [currentStatus, branchId, orders]);
-
-    const loadInProcessOrders = async () => {
-        try {
-            const accessToken = localStorage.getItem('accessToken');
-            if (!accessToken) {
-                console.error('Access token is not available.');
-                return;
             }
+        };
+    }, [currentStatus, branchId]);
 
-            const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/in-process/', {
-                headers: { 'Authorization': `Bearer ${accessToken}` },
-            });
-
-            if (response.status === 200 && response.data.orders) {
-                setOrders(response.data.orders); // Обратите внимание на .orders
-            } else {
-                console.error('Unexpected response format:', response.data);
-            }
-        } catch (error) {
-            console.error('Error loading in process orders:', error);
-        }
-    };
-
-    const loadReadyOrders = async () => {
-        try {
-            const accessToken = localStorage.getItem('accessToken');
-            if (!accessToken) {
-                console.error('Access token is not available.');
-                return;
-            }
-
-            const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/ready/', {
-                headers: { 'Authorization': `Bearer ${accessToken}` },
-            });
-
-            if (response.status === 200 && response.data.orders) {
-                setOrders(response.data.orders); // Обратите внимание на .orders
-            } else {
-                console.error('Unexpected response format:', response.data);
-            }
-        } catch (error) {
-            console.error('Error loading in process orders:', error);
-        }
-    };
-
-    const loadCanceledOrders = async () => {
-        try {
-            const accessToken = localStorage.getItem('accessToken');
-            if (!accessToken) {
-                console.error('Access token is not available.');
-                return;
-            }
-
-            const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/canceled/', {
-                headers: { 'Authorization': `Bearer ${accessToken}` },
-            });
-
-            if (response.status === 200 && response.data.orders) {
-                setOrders(response.data.orders);
-            } else {
-                console.error('Unexpected response format:', response.data);
-            }
-        } catch (error) {
-            console.error('Error loading canceled orders:', error);
-        }
-    };
-
-    const loadCompletedOrders = async () => {
-        try {
-            const accessToken = localStorage.getItem('accessToken');
-            if (!accessToken) {
-                console.error('Access token is not available.');
-                return;
-            }
-
-            const response = await axios.get('https://muha-backender.org.kg/web/takeaway-orders/completed/', {
-                headers: { 'Authorization': `Bearer ${accessToken}` },
-            });
-
-            if (response.status === 200 && response.data.orders) {
-                setOrders(response.data.orders);
-            } else {
-                console.error('Unexpected response format:', response.data);
-            }
-        } catch (error) {
-            console.error('Error loading canceled orders:', error);
-        }
-    };
 
     const handleStatusClick = (statusLabel) => {
         const status = statusMap[statusLabel];
