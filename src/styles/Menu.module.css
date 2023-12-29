@@ -26,7 +26,7 @@ button {
   justify-content: center;
   align-items: center;
   height: 60px;
-  width: calc(100vw - 117px);
+  /*width: calc(100vw - 117px);*/
   background: #ff8b5b;
   color: #fefefe;
   text-align: center;
@@ -45,12 +45,13 @@ button {
 }
 
 .cardDiv {
-  height: 500px;
+  max-height: 490px;
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
   white-space: nowrap;
-  justify-content: start;
+  /*justify-content: start;*/
+  justify-content: flex-start;
 }
 
 

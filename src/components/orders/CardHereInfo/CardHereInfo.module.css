@@ -19,6 +19,16 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.cardInfos {
+    max-height: 500px;
+    width: 480px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    justify-content: flex-start;
+    align-items: start;
+}
 .notificationModalTitle {
     display: flex;
     justify-content: end;

@@ -25,7 +25,7 @@ const CardHereInfo = ({ orderId, onClose }) => {
     }, [orderId]);
 
     if (!orderDetails) {
-        return <div>Loading...</div>;
+        return <div> </div>;
 
     }
 
@@ -40,7 +40,7 @@ const CardHereInfo = ({ orderId, onClose }) => {
                         </button>
                     </div>
 
-                    <div>
+                    <div className={styles.cardInfos}>
                         {orderDetails.items.map((item, index) => (
                             <div key={index} className={styles.orderInfoCard}>
                                 {/*<div>*/}

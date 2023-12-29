@@ -18,29 +18,65 @@ const ProfileDataSchedule = () => {
     };
 
 
-   useEffect(() => {
-        const accessToken = localStorage.getItem('accessToken');
-        if (!accessToken) {
-            console.error('Access token is not available.');
-            return;
-        }
+   // useEffect(() => {
+   //      const accessToken = localStorage.getItem('accessToken');
+   //      if (!accessToken) {
+   //          console.error('Access token is not available.');
+   //          return;
+   //      }
+   //
+   //      axios.get('https://muha-backender.org.kg/accounts/my-schedule/', {
+   //          headers: { 'Authorization': `Bearer ${accessToken}` },
+   //      })
+   //      .then(response => {
+   //          const formattedSchedule = response.data.workdays.map(item => ({
+   //              day: daysOfWeek[item.workday.toString()],
+   //              startTime: item.start_time,
+   //              endTime: item.end_time,
+   //              shift: getShiftType(item.start_time, item.end_time),
+   //          }));
+   //          setSchedule(formattedSchedule);
+   //      })
+   //      .catch(error => {
+   //          console.error('Ошибка при запросе расписания:', error);
+   //      });
+   //  }, []);
+useEffect(() => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+        console.error('Access token is not available.');
+        return;
+    }
 
-        axios.get('https://muha-backender.org.kg/accounts/my-schedule/', {
-            headers: { 'Authorization': `Bearer ${accessToken}` },
-        })
-        .then(response => {
-            const formattedSchedule = response.data.workdays.map(item => ({
-                day: daysOfWeek[item.workday.toString()],
-                startTime: item.start_time,
-                endTime: item.end_time,
-                shift: getShiftType(item.start_time, item.end_time),
-            }));
-            setSchedule(formattedSchedule);
-        })
-        .catch(error => {
-            console.error('Ошибка при запросе расписания:', error);
+    axios.get('https://muha-backender.org.kg/accounts/my-schedule/', {
+        headers: { 'Authorization': `Bearer ${accessToken}` },
+    })
+    .then(response => {
+        const fullWeekSchedule = Object.entries(daysOfWeek).map(([key, value]) => ({
+            day: value,
+            startTime: '',
+            endTime: '',
+            shift: 'off',
+        }));
+
+        response.data.workdays.forEach(item => {
+            const dayIndex = fullWeekSchedule.findIndex(day => day.day === daysOfWeek[item.workday.toString()]);
+            if (dayIndex !== -1) {
+                fullWeekSchedule[dayIndex] = {
+                    day: daysOfWeek[item.workday.toString()],
+                    startTime: item.start_time,
+                    endTime: item.end_time,
+                    shift: getShiftType(item.start_time, item.end_time),
+                };
+            }
         });
-    }, []);
+
+        setSchedule(fullWeekSchedule);
+    })
+    .catch(error => {
+        console.error('Ошибка при запросе расписания:', error);
+    });
+}, []);
 
 
     const getShiftType = (startTime, endTime) => {

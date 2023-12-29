@@ -7,7 +7,7 @@
     font-family: Nunito;
 }
 .profileForm {
-    width: 703px;
+    width: 840px;
     height: 490px;
     border-radius: 30px;
     background: #FEFEFE;
@@ -24,7 +24,7 @@
     margin-bottom: 20px;
 }
 .profileScheduleTimes {
-    margin-right: 70px;
+    margin-right: 40px;
 }
 .profileScheduleBoxDay {
     margin-right: 6px;
@@ -71,7 +71,7 @@
     list-style: none;
     display: flex;
     align-items: center;
-    margin: 10px 0;
+    margin: 10px 10px 10px 0;
     font-size: 20px;
     font-weight: 600;
     line-height: 27px;
@@ -87,7 +87,7 @@
     height: 61px;
     position: absolute;
     top: 500px;
-    right: -300px;
+    right: -230px;
 }
 .exitPanelImage {
     width: 32px;
