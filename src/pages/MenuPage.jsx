@@ -18,7 +18,8 @@ import cocktailIcon from "../img/menu/MenuCategory/cocktail.svg"
 import cocktailActiveIcon from "../img/menu/MenuCategory/cocktailActive.svg"
 import teaIcon from "../img/menu/MenuCategory/tea.svg"
 import teaActiveIcon from "../img/menu/MenuCategory/teaActive.svg"
-
+import food from '../img/menu/MenuCategory/food.png'
+import foodActive from '../img/menu/MenuCategory/foodActive.png'
 
 const MenuPage = () => {
     const [categories, setCategories] = useState([]);
@@ -90,7 +91,7 @@ const MenuPage = () => {
             case 'чай':
                 return teaIcon;
             default:
-                return '';
+                return food;
         }
     };
 
@@ -107,7 +108,7 @@ const MenuPage = () => {
             case 'чай':
                 return teaActiveIcon;
             default:
-                return '';
+                return foodActive;
         }
     };
 

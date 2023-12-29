@@ -95,7 +95,7 @@ const MenuCard = ({ item, addToCart, removeFromCart , isReadyMade }) => {
                     open={open}
                     handleClose={() => setOpen(false)}
                     itemDetails={menuItemDetails}
-                    addToCart={addToCart} // Передаем функцию addToCart
+                    addToCart={addToCart}
                 />
             )}
         </div>

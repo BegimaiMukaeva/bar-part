@@ -44,7 +44,7 @@ const MenuItemDescModal = ({ open, handleClose, itemDetails, addToCart }) => {
                             <p>Основные ингредиенты</p>
                             <ul>
                                 {itemDetails.compositions.map((composition, index) => (
-                                    <li key={index}>{composition.ingredient} - {composition.quantity} гр</li>
+                                    <li key={index}>{composition.name} - {composition.quantity} гр</li>
                                 ))}
                             </ul>
                         </div>

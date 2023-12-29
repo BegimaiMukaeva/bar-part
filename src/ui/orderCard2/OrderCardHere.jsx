@@ -180,6 +180,7 @@ const OrderCardHere = ({ number, waiterName, clientNumber, items, status, onOrde
             {isCardInfoModalOpen && (
                 <CardHereInfo
                     onClose={closeCardClick}
+                    orderId={number}
                 />
             )}
         </div>

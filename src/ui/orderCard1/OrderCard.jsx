@@ -4,6 +4,7 @@ import OrderCloseModal from '../../components/orders/OrderCloseModal/OrderCloseM
 import CardInformation from '../../components/orders/CardInformation/CardInformation'
 import closeOrderCard from '../../img/X.svg';
 import axios from "axios";
+import CardHereInfo from "../../components/orders/CardHereInfo/CardHereInfo";
 
 const OrderCard = ({ number, clientNumber, items, status, onOrderCancel }) => {
     const [isModalOpen, setModalOpen] = useState(false);
@@ -172,8 +173,9 @@ const OrderCard = ({ number, clientNumber, items, status, onOrderCancel }) => {
                 />
             )}
             {isCardInfoModalOpen && (
-                <CardInformation
+                <CardHereInfo
                     onClose={closeCardClick}
+                    orderId={number}
                 />
             )}
         </div>
