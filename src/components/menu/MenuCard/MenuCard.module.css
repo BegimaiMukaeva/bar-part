@@ -72,15 +72,18 @@
   width: 151px;
 }
 .descDiv p {
-  width: 100px;
+  width: 100px; /* или другая фиксированная ширина, в зависимости от вашего дизайна */
   font-family: Nunito;
   font-size: 20px;
-  font-style: normal;
   font-weight: 700;
   line-height: 120%;
   text-decoration: none;
   cursor: pointer;
+  overflow: hidden; /* Обрезать все, что выходит за пределы блока */
+  white-space: nowrap; /* Не переносить текст на новую строку */
+  text-overflow: ellipsis; /* Добавить многоточие в конце обрезанного текста */
 }
+
 .quantityControlsOverlay {
   position: absolute;
   top: 50%;
