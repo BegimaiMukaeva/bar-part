@@ -1,11 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './AllOrders.module.css';
 import OrdersTakeAway from '../OrdersTakeAway/OrdersTakeAway';
 import OrdersHere from '../OrderHere/OrdersHere';
+import OrderTrigger from '../../../ui/orderTrigger/OrderTrigger'
+import axios from 'axios';
 
 const AllOrders = () => {
     const [activeOrderType, setActiveOrderType] = useState('takeAway');
+    const [branchId, setBranchId] = useState(null);
+    const [orderReminder, setOrderReminder] = useState(null);
+    const [ws, setWs] = useState(null);
 
+    useEffect(() => {
+        const accessToken = localStorage.getItem('accessToken');
+        if (!accessToken) {
+            console.error('Access token is not available.');
+            return;
+        }
+        axios.get('https://muha-backender.org.kg/web/my-branch-id/', {
+            headers: { 'Authorization': `Bearer ${accessToken}` },
+        })
+            .then(response => {
+                setBranchId(response.data.branch_id);
+            })
+            .catch(error => {
+                console.error('Ошибка при получении ID филиала:', error);
+            });
+    }, []);
+
+    useEffect(() => {
+        if (branchId) {
+            const newWs = new WebSocket(`wss://muha-backender.org.kg/ws/reminder/${branchId}/`);
+            newWs.onopen = () => {
+                console.log("WebSocket connection established");
+            };
+            newWs.onmessage = (event) => {
+                console.log("Received WebSocket message:", event.data);
+                const data = JSON.parse(event.data);
+
+                // Создаем объект заказа для компонента OrderTrigger
+                const orderReminderData = {
+                    id: data.id, // ID заказа
+                    content: data.content // Текст напоминания
+                };
+
+                // Устанавливаем напоминание о заказе
+                setOrderReminder(orderReminderData);
+
+                // Установка таймаута для скрытия триггера через 30 секунд
+                setTimeout(() => {
+                    setOrderReminder(null);
+                }, 30000);
+            };
+
+            newWs.onclose = () => {
+                console.log("WebSocket connection closed");
+            };
+            newWs.onerror = (error) => {
+                console.error("WebSocket error:", error);
+            };
+            setWs(newWs);
+
+            // Очистка при размонтировании компонента
+            return () => {
+                if (ws) {
+                    ws.close();
+                }
+            };
+        }
+    }, [branchId]);
+
+
+    const closeTrigger = () => {
+        setOrderReminder(null);
+    };
     const handleTakeAwayClick = () => {
         setActiveOrderType('takeAway');
     };
@@ -39,6 +107,7 @@ const AllOrders = () => {
                 {activeOrderType === 'takeAway' && <OrdersTakeAway />}
                 {activeOrderType === 'orderHere' && <OrdersHere />}
             </div>
+            {orderReminder && <OrderTrigger order={orderReminder} onClose={closeTrigger} />}
         </div>
     );
 };

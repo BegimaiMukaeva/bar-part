@@ -1,0 +1,62 @@
+.triggerContainer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    z-index: 1000;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.orderTrigger {
+    position: relative;
+    z-index: 1001;
+    width: 400px;
+    height: 156px;
+    /*position: fixed;*/
+    top: 0;
+    right: 0;
+    background: #FEFEFE;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-bottom-left-radius: 30px;
+}
+
+.orderHeader {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.orderHeader h2 {
+    margin-right: 50px;
+    font-family: Nunito;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+}
+.closeButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.orderContent {
+    text-align: center;
+    margin-top: 10px;
+    font-family: Nunito;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 33px;
+}

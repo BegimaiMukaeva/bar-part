@@ -79,9 +79,9 @@
   line-height: 120%;
   text-decoration: none;
   cursor: pointer;
-  overflow: hidden; /* Обрезать все, что выходит за пределы блока */
-  white-space: nowrap; /* Не переносить текст на новую строку */
-  text-overflow: ellipsis; /* Добавить многоточие в конце обрезанного текста */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .quantityControlsOverlay {
