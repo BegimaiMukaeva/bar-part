@@ -65,7 +65,7 @@ const OrdersTakeAway = () => {
                 });
 
                 if (response.status === 200 && response.data.orders) {
-                    setOrders(response.data.orders); // Обратите внимание на .orders
+                    setOrders(response.data.orders);
                 } else {
                     console.error('Unexpected response format:', response.data);
                 }
@@ -87,7 +87,7 @@ const OrdersTakeAway = () => {
                 });
 
                 if (response.status === 200 && response.data.orders) {
-                    setOrders(response.data.orders); // Обратите внимание на .orders
+                    setOrders(response.data.orders);
                 } else {
                     console.error('Unexpected response format:', response.data);
                 }

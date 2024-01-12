@@ -38,19 +38,16 @@ const AllOrders = () => {
                 console.log("Received WebSocket message:", event.data);
                 const data = JSON.parse(event.data);
 
-                // Создаем объект заказа для компонента OrderTrigger
                 const orderReminderData = {
-                    id: data.id, // ID заказа
-                    content: data.content // Текст напоминания
+                    id: data.id,
+                    content: data.content
                 };
 
-                // Устанавливаем напоминание о заказе
                 setOrderReminder(orderReminderData);
 
-                // Установка таймаута для скрытия триггера через 30 секунд
                 setTimeout(() => {
                     setOrderReminder(null);
-                }, 30000);
+                }, 120000);
             };
 
             newWs.onclose = () => {
@@ -61,7 +58,6 @@ const AllOrders = () => {
             };
             setWs(newWs);
 
-            // Очистка при размонтировании компонента
             return () => {
                 if (ws) {
                     ws.close();

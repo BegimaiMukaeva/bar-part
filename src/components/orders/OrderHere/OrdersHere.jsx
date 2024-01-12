@@ -60,7 +60,7 @@ const OrdersHere = () => {
                     console.error('Access token is not available.');
                     return;
                 }
-                console.log('Loading in process orders...'); // Отладочное сообщение
+                console.log('Loading in process orders...');
 
 
                 const response = await axios.get('https://muha-backender.org.kg/web/institution-orders/in-process/', {
@@ -68,7 +68,7 @@ const OrdersHere = () => {
                 });
 
                 if (response.status === 200 && response.data.orders) {
-                    console.log('In process orders:', response.data.orders); // Отладочное сообщение
+                    console.log('In process orders:', response.data.orders);
                     setOrders(response.data.orders);
                 } else {
                     console.error('Unexpected response format:', response.data);

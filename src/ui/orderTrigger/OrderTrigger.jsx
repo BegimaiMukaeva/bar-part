@@ -1,4 +1,3 @@
-// OrderTrigger.js
 import React from 'react';
 import styles from "./OrderTrigger.module.css";
 import closeOrderCard from "../../img/X.svg";
