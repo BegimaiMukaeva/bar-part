@@ -38,7 +38,7 @@ const confirmLoginForBarmen = async () => {
     localStorage.setItem('accessToken', response.data.access);
     localStorage.setItem('refreshToken', response.data.refresh);
 
-    window.location.href = '/all-orders';
+    window.location.href = '/menu';
   } catch (error) {
     setIsCodeValid(false);
     console.error('Ошибка при подтверждении кода:', error.response?.data?.detail || error.message);

@@ -183,7 +183,7 @@ const MenuDrawer = ({  open, close, cartItems, onAdd, onRemove, total, setCartIt
                         <p>Итого</p>
                         <p>{total}с</p>
                     </div>
-                    <button onClick={handleCreateOrder}>Закрыть счет</button>
+                    <button onClick={handleCreateOrder}>Оформить заказ</button>
                 </div>
                 <Modal
                     open={isModalVisible}

@@ -109,7 +109,7 @@ const CardInformation = ({onClose}) => {
                         <p>Итого</p>
                         <p>570 сом</p>
                     </div>
-                    <button className={styles.orderAllPriceButton}>Закрыть счет</button>
+                    {/*<button className={styles.orderAllPriceButton}>Закрыть счет</button>*/}
                 </div>
             </div>
         </div>
